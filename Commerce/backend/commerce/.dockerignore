@@ -1,0 +1,10 @@
+target/
+.mvn/
+mvnw
+mvnw.cmd
+.git/
+.idea/
+.vscode/
+Dockerfile
+docker-compose.yml
+uploads/

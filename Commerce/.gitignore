@@ -1,0 +1,29 @@
+# Root .gitignore for Commerce Portfolio
+
+# Java / Spring Boot (Backend)
+**/target/
+**/.mvn/
+**/mvnw
+**/mvnw.cmd
+**/.idea/
+**/.vscode/
+**/*.class
+**/uploads/
+**/application.properties
+**/application-*.properties
+
+# Node / React (Frontend)
+**/node_modules/
+**/dist/
+**/.env
+**/.env.local
+**/.env.development.local
+**/.env.test.local
+**/.env.production.local
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db

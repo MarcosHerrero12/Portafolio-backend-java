@@ -1,0 +1,23 @@
+# Pro-Commerce - Application Properties Example
+# Copia este archivo como application.properties y completa tus credenciales
+
+# PostgreSQL
+spring.datasource.url=jdbc:postgresql://localhost:5432/commerce_db
+spring.datasource.username=admin
+spring.datasource.password=adminpassword
+
+# JWT
+jwt.secret=TU_CLAVE_SECRETA_SUPER_LARGA_AQUI
+jwt.expiration=86400000
+
+# Mercado Pago (Obtener en el panel de desarrolladores de MP)
+mercadopago.access_token=TU_ACCESS_TOKEN_AQUI
+mercadopago.public_key=TU_PUBLIC_KEY_AQUI
+
+# Mail Configuration (Gmail App Password recomendada)
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=tu-email@gmail.com
+spring.mail.password=tu-password-de-aplicacion
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
