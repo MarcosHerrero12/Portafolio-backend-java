@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: billing-service
+  config:
+    import: "optional:file:../application-base.yml"
+  kafka:
+    consumer:
+      properties:
+        spring.json.value.default.type: "com.logiflow.billing.consumer.BillingEventConsumer$ShippingEvent"
+        spring.json.use.type.headers: false
+
+server:
+  port: 8081

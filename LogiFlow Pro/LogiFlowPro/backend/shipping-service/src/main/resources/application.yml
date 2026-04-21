@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: shipping-service
+  config:
+    import: "optional:file:../application-base.yml"
+
+server:
+  port: 8080

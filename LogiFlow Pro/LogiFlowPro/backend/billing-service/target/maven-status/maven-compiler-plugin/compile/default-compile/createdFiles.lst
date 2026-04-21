@@ -1,0 +1,5 @@
+com\logiflow\billing\consumer\BillingEventConsumer$ShippingEvent.class
+com\logiflow\billing\consumer\BillingEventConsumer.class
+com\logiflow\billing\BillingServiceApplication.class
+com\logiflow\billing\config\KafkaConsumerConfig.class
+com\logiflow\billing\consumer\BillingEventConsumer$SimulatedDataAccessException.class
