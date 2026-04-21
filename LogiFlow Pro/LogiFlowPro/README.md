@@ -91,7 +91,7 @@ GET http://localhost:8080/api/shipping/trigger?trackingId=LOGI-ERROR&state=SIMUL
 ## 👨‍💻 Author
 **Marcos Herrero** - *Full Stack Developer*
 - [GitHub](https://github.com/MarcosHerrero12)
-- [LinkedIn](https://www.linkedin.com/in/marcos-herrero/)
+- [LinkedIn](https://www.linkedin.com/in/marcos-herrero-205312224/)
 
 ---
 
