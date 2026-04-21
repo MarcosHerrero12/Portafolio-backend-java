@@ -37,4 +37,16 @@ public class EmailService {
         String body = "Tu pedido ha sido recibido correctamente y está siendo procesado.\n\nNúmero de pedido: " + orderId;
         sendEmail(to, subject, body);
     }
+
+    public void sendOrderShipped(String to, Long orderId) {
+        String subject = "Tu Pedido #" + orderId + " ha sido despachado";
+        String body = "¡Buenas noticias! Tu pedido ha sido entregado al correo y está en camino.\n\nNúmero de pedido: " + orderId;
+        sendEmail(to, subject, body);
+    }
+
+    public void sendOrderDelivered(String to, Long orderId) {
+        String subject = "Tu Pedido #" + orderId + " ha sido entregado";
+        String body = "Tu pedido ha sido marcado como entregado. ¡Esperamos que lo disfrutes!\n\nNúmero de pedido: " + orderId;
+        sendEmail(to, subject, body);
+    }
 }

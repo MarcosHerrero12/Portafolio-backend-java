@@ -7,6 +7,9 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.portfolio.commerce.state.OrderState;
+import com.portfolio.commerce.state.OrderStateFactory;
+
 @Entity
 @Table(name = "orders")
 @Data
@@ -33,7 +36,38 @@ public class Order {
 
     @Builder.Default
     @Column(nullable = false)
-    private String status = "PENDING"; // PENDING, PAID, CANCELLED
+    private String status = "PENDING"; // PENDING, PAID, SHIPPED, DELIVERED, CANCELLED
+
+    @Transient
+    @com.fasterxml.jackson.annotation.JsonIgnore
+    private OrderState state;
+
+    @PostLoad
+    @PostPersist
+    @PostUpdate
+    public void init() {
+        this.state = OrderStateFactory.getState(this.status);
+    }
+
+    public void pay() {
+        if (this.state == null) init();
+        this.state.pay(this);
+    }
+
+    public void ship() {
+        if (this.state == null) init();
+        this.state.ship(this);
+    }
+
+    public void deliver() {
+        if (this.state == null) init();
+        this.state.deliver(this);
+    }
+
+    public void cancel() {
+        if (this.state == null) init();
+        this.state.cancel(this);
+    }
 
     private String preferenceId;
 

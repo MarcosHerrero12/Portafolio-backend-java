@@ -80,4 +80,41 @@ public class OrderService {
                 .orElseThrow(() -> new ResourceNotFoundException("User not found"));
         return orderRepository.findByUserId(user.getId());
     }
+
+    @Transactional
+    public Order payOrder(Long id) {
+        Order order = orderRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Order not found with id: " + id));
+        order.pay();
+        return orderRepository.save(order);
+    }
+
+    @Transactional
+    public Order shipOrder(Long id) {
+        Order order = orderRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Order not found with id: " + id));
+        order.ship();
+        Order savedOrder = orderRepository.save(order);
+        emailService.sendOrderShipped(savedOrder.getUser().getEmail(), savedOrder.getId());
+        return savedOrder;
+    }
+
+    @Transactional
+    public Order deliverOrder(Long id) {
+        Order order = orderRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Order not found with id: " + id));
+        order.deliver();
+        Order savedOrder = orderRepository.save(order);
+        emailService.sendOrderDelivered(savedOrder.getUser().getEmail(), savedOrder.getId());
+        return savedOrder;
+    }
+
+    @Transactional
+    public Order cancelOrder(Long id) {
+        Order order = orderRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Order not found with id: " + id));
+        order.cancel();
+        // Option: restore stock here if needed.
+        return orderRepository.save(order);
+    }
 }
